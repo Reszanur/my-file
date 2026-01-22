@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Night Dutt</title>
+<style>
+body {
+  margin: 0;
+  background: #000;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+h1 {
+  color: #ffb6c1;
+  margin-bottom: 20px;
+}
+
+.doll-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.doll {
+  position: absolute;
+  width: 150px;
+  transition: transform 0.3s;
+}
+
+.doll:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.sticker {
+  position: absolute;
+  width: 60px;
+  animation: floatSticker 4s infinite;
+}
+
+.sticker:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sticker:nth-child(2) { left: 50%; animation-delay: 1s; }
+.sticker:nth-child(3) { left: 80%; animation-delay: 2s; }
+
+@keyframes floatSticker {
+  0% { transform: translateY(0) scale(1); opacity:1; }
+  50% { transform: translateY(-80px) scale(1.2); opacity:0.7; }
+  100% { transform: translateY(0) scale(1); opacity:1; }
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  color: #ff69b4;
+  animation: floatHeart 4s infinite;
+}
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(1); opacity:1; }
+  50% { transform: translateY(-80px) scale(1.2); opacity:0.7; }
+  100% { transform: translateY(0) scale(1); opacity:1; }
+}
+
+.text {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #ffb6c1;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+/* Confetti popup */
+.popup {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff69b4;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Night Dutt</h1>
+
+<div class="doll-container" onclick="showPopup()">
+  <!-- Boneka GIF peluk lucu -->
+  <img src="https://i.ibb.co/4VQfKxT/cute-hug.gif" class="doll" style="left:50%; transform: translateX(-50%);">
+
+  <!-- Floating hearts halus (opsional, tetap classy) -->
+  <div class="heart" style="left:20%; animation-delay:0s;">💗</div>
+  <div class="heart" style="left:50%; animation-delay:1s;">💗</div>
+  <div class="heart" style="left:80%; animation-delay:2s;">💗</div>
+
+  <!-- Stiker lucu tambahan -->
+  <img src="https://i.ibb.co/2WZ2Y1D/sticker1.png" class="sticker">
+  <img src="https://i.ibb.co/XYj4rHq/sticker2.png" class="sticker">
+  <img src="https://i.ibb.co/V9H0xPQ/sticker3.png" class="sticker">
+
+  <!-- Popup confetti -->
+  <div class="popup" id="popup">✨🎉✨</div>
+</div>
+
+<div class="text">Selamat beristirahat 🌙 by Resa Cantik</div>
+
+<script>
+function showPopup() {
+  const popup = document.getElementById('popup');
+  popup.style.opacity = 1;
+  setTimeout(() => { popup.style.opacity = 0; }, 2000);
+}
+</script>
+
+</body>
+</html>
